@@ -1,6 +1,6 @@
 import Money from '../assets/money.svg';
 import Folder from '../assets/card.svg';
-import People from '../assets/People.svg';
+import People from '../assets/people.svg';
 
  export const data = [
     {
