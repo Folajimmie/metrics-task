@@ -15,7 +15,7 @@ const Sidebar = () => {
         {/* for mobile screen */}
         <div className={`${open ? "-translate-x-0" : "-translate-x-full"} absolute top-0 left-0 w-screen bg-white p-4 transition-all duration-300 ease-in-out filter`}>
             <div className="flex justify-end">
-                <HiOutlineXMark onClick={() => setOpen(!open)}/>
+                <HiOutlineXMark onClick={() => setOpen(!open)} />
             </div>
             <div className="text-center" onClick={() => setOpen(!open)}>
                 <ul className='flex flex-col gap-6'>
@@ -34,7 +34,7 @@ const Sidebar = () => {
         <nav>
             <HiBars3BottomRight
                 onClick={() => setOpen(!open)}
-                className="md:hidden text-3xl"
+                className="text-whiteText md:hidden text-3xl"
             />
 
             <ul className='hidden md:mt-[45px] md:flex md:flex-col md:gap-4'>
