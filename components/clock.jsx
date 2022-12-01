@@ -11,7 +11,7 @@ const Clock = () => {
     }, []);
 
     return ( 
-        <div className="text-whiteText text-time">
+        <div className="text-whiteText md:text-whiteText md:text-time2 lg:text-whiteText lg:text-time">
             {clock}
         </div>
      );

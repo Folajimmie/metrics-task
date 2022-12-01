@@ -14,8 +14,8 @@ const Calendar = () => {
     }, []);
 
     return ( 
-        <div className="text-whiteText text-hover flex gap-1 mt-1">
-            {calendar}
+        <div className="hidden md:text-whiteText md:text-body2 md:flex md:gap-1 md:mt-1 lg:text-whiteText lg:text-hover lg:flex lg:gap-1 lg:mt-1">
+            <p className="md:mt-1 lg:mt-0">{calendar}</p>
             <Image src={Cal} alt='logo' className="mb-2"/> 
         </div>
      );

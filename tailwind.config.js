@@ -28,6 +28,13 @@ module.exports = {
             letterSpacing: '0.005em'
           }
         ],
+        body2: [
+          '11px',
+          {
+            lineHeight: '19px',
+            letterSpacing: '0.005em'
+          }
+        ],
         hover: [
           '18px',
           {
@@ -44,6 +51,14 @@ module.exports = {
         ],
         time: [
           '40px',
+          {
+            lineHeight: '37px',
+            letterSpacing: '0.005em',
+            fontWeight: 500
+          }
+        ],
+        time2: [
+          '30px',
           {
             lineHeight: '37px',
             letterSpacing: '0.005em',
