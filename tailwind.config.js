@@ -14,7 +14,8 @@ module.exports = {
         primary: {
           100: '#1F1C3A',
           80: '#393370',
-          60: '#9890D9'
+          60: '#9890D9',
+          40: '#3a346b'
         }
       },
       fontFamily: {
