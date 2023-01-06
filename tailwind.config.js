@@ -10,13 +10,18 @@ module.exports = {
         whiteText: '#FFFFFF',
         grayText: '#706F6F',
         yellowText: '#FBBE45',
+        yellowBg:'#FBBE45',
         background: '#151327',
+        error: '#FB2C2C',
         primary: {
           100: '#1F1C3A',
           80: '#393370',
           60: '#9890D9',
           40: '#3a346b'
         }
+      },
+      backgroundImage: {
+        'dot': "url('../public/dot.svg')"
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif']
@@ -36,6 +41,13 @@ module.exports = {
             letterSpacing: '0.005em'
           }
         ],
+        heading: [
+          '26px',
+          {
+            lineHeight: '35.38px',
+            letterSpacing: '0.005em'
+          }
+        ],
         hover: [
           '18px',
           {
@@ -48,6 +60,14 @@ module.exports = {
           {
             lineHeight: '37px',
             letterSpacing: '0.005em'
+          }
+        ],
+        caption: [
+          '14px',
+          {
+            lineHeight: '17px',
+            letterSpacing: '0.004em',
+            fontWeight: 400
           }
         ],
         time: [

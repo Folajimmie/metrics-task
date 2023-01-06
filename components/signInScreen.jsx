@@ -54,11 +54,11 @@ const SignIn = () => {
                         //   error={errors.password?.message}
                        />
                     </div>
-                        <DefaultButton className="!mt-[6px]" disabled={Object.keys(errors).length > 0}>
-                            <Link href="/global">
+                        <Link href="/global">
+                            <DefaultButton className="!mt-[6px]" disabled={Object.keys(errors).length > 0}>
                                 Sign in
-                            </Link>
-                        </DefaultButton>
+                            </DefaultButton>
+                        </Link>
 
                         <Link href="/passwordReset">
                             <p className="text-caption text-whiteText cursor-pointer mt-4">Forgot password?</p>
