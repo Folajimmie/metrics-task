@@ -8,7 +8,7 @@ const DashboardLayout = ({children}) => {
             <Navbar />
             <div className="flex flex-col gap-3 md:flex md:flex-row md:gap-5 lg:flex lg:flex-row lg:gap-5">
                 <Sidebar />
-                <main className="mt-2">{children}</main>
+                <main className="mt-2 w-full">{children}</main>
             </div>
         </div>
      );

@@ -3,15 +3,19 @@ import { data } from "../components/data";
 
 export default function Global() {
     return(
-        <div className="">
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-2 lg:grid-cols-3 pb-7">
+        <div className="w-full">
+            
+            <div className={`grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-2 lg:grid-cols-6 pb-7`}>
                 {data.map((pic, i) => {
-                    return <Card key={i} image={pic.image} title={pic.title} figure={pic.figure}/>
+                    return <Card 
+                                key={i} 
+                                className={`${i === 0 ? 'col-span-3' : i == 2 ? 'col-span-1' : 'col-span-2'}`}
+                                image={pic.image} 
+                                title={pic.title} 
+                                figure={pic.figure}
+                            />
                 })}
             </div>
         </div>
     );                
 };
-
-// grid grid-cols-[259px_minmax(777px,_1fr)_324px] grid-rows-1 gap-[16px]
-// mt-[39px] mb-12 flex flex-col items-center md:flex-row gap-[24px] md:flex-wrap md:justify-center

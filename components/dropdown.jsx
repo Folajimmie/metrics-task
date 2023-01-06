@@ -36,9 +36,9 @@ const Dropdown = ({placeHolder}) => {
 
   return (
     <div className='text-white text-left relative md:hidden lg:hidden'>
-        <div onClick={handleInputClick} className='p-[5px] flex items-center justify-between w-3/4'>    
+        <div onClick={handleInputClick} className='p-[5px] flex items-center justify-between w-3/4 border border-primary-40 rounded-md'>    
           <div>
-            <p className='text-lg font-semibold'>
+            <p className='text-sm font-semibold'>
               {getDisplay ()}
             </p>
           </div>
@@ -47,11 +47,11 @@ const Dropdown = ({placeHolder}) => {
           </div>
         </div>
         {openMenu ? 
-        <div className='bg-primary-100 flex flex-col gap-5 p-2 w-3/4 absolute translate-y-[4px] rounded-md border border-primary-80'>
+        <div className='bg-background flex flex-col gap-5 p-2 w-3/4 absolute translate-y-[4px] rounded-md border border-primary-80'>
           {menuItems.map(({href, title, i}) => (
             <li key={i} className="flex justify-center w-full">
-              <Link href={href} className={`w-[156px] flex text-white hover:text-hover hover:text-white hover:bg-primary-40 hover:p-2 ${router.pathname == href ? "text-whiteText" : "text-grayText"}`}>
-                <p>{title}</p>  
+              <Link href={href} className={`w-[156px] flex gap-[10px] text-white hover:text-hover hover:text-white hover:after:content-[url("../public/dot.svg")] ${router.pathname == href ? "text-whiteText" : "text-grayText"} ${router.pathname == href ? "after:content-[url('../public/dot.svg')]" : ""}`}>
+                <p className=''>{title}</p>  
               </Link>
             </li>
           ))}

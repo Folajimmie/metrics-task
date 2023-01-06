@@ -11,7 +11,7 @@ const Sidebar = () => {
         {/* for mobile screen */}
         <div>
             <div>
-                <Dropdown placeHolder='Select Country...'/>
+                <Dropdown placeHolder='Select Country'/>
             </div>
         </div>
 
@@ -20,8 +20,8 @@ const Sidebar = () => {
             <ul className='hidden md:mt-[45px] md:flex md:flex-col md:gap-4'>
             {menuItems.map(({href, title, i}) => (
                 <li key={i}>
-                    <Link href={href} className={`w-[156px] flex text-white hover:text-hover hover:text-whiteText   hover:border-r-8 border-yellowText rounded-3xl ${router.pathname == href ? "text-whiteText" : "text-grayText"}`}>
-                        {title}  
+                    <Link href={href} className={`w-[156px] flex gap-[10px] text-white hover:text-hover hover:text-whiteText hover:after:content-[url("../public/dot.svg")] ${router.pathname == href ? "text-whiteText" : "text-grayText"} ${router.pathname == href ? "after:content-[url('../public/dot.svg')]" : ""}`}>
+                        {title} 
                     </Link>
                 </li>
             ))}
