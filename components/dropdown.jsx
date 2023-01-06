@@ -47,7 +47,7 @@ const Dropdown = ({placeHolder}) => {
           </div>
         </div>
         {openMenu ? 
-        <div className='bg-background flex flex-col gap-5 p-2 w-3/4 absolute translate-y-[4px] rounded-md border border-primary-80'>
+        <div className='bg-background flex flex-col gap-4 p-2 w-3/4 absolute translate-y-[4px] rounded-md border border-primary-80'>
           {menuItems.map(({href, title, i}) => (
             <li key={i} className="flex justify-center w-full">
               <Link href={href} className={`w-[156px] flex gap-[10px] text-white hover:text-hover hover:text-white hover:after:content-[url("../public/dot.svg")] ${router.pathname == href ? "text-whiteText" : "text-grayText"} ${router.pathname == href ? "after:content-[url('../public/dot.svg')]" : ""}`}>
