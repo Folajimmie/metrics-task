@@ -10,7 +10,6 @@ module.exports = {
         whiteText: '#FFFFFF',
         grayText: '#706F6F',
         yellowText: '#FBBE45',
-        yellowBg:'#FBBE45',
         background: '#151327',
         error: '#FB2C2C',
         primary: {

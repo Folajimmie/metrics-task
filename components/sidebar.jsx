@@ -17,7 +17,7 @@ const Sidebar = () => {
 
         {/* for other screens */}
         <nav>
-            <ul className='hidden md:mt-[45px] md:flex md:flex-col md:gap-4'>
+            <ul className='hidden lg:mt-[45px] lg:flex lg:flex-col lg:gap-4'>
             {menuItems.map(({href, title, i}) => (
                 <li key={i}>
                     <Link href={href} className={`w-[156px] flex gap-[10px] text-white hover:text-hover hover:text-whiteText hover:after:content-[url("../public/dot.svg")] ${router.pathname == href ? "text-whiteText" : "text-grayText"} ${router.pathname == href ? "after:content-[url('../public/dot.svg')]" : ""}`}>

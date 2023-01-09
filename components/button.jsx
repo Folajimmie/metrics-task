@@ -4,7 +4,7 @@ const buttonBaseClassName =
 export const DefaultButton = ({ children, className, onClick, ...rest }) => {
   return (
     <button
-      className={`${buttonBaseClassName} text-black bg-yellowBg ${className}`}
+      className={`${buttonBaseClassName} text-black bg-yellowText ${className}`}
       onClick={onClick}
       {...rest}>
       {children}
