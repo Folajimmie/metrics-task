@@ -20,8 +20,8 @@ const Sidebar = () => {
             <ul className='hidden lg:mt-[45px] lg:flex lg:flex-col lg:gap-4'>
             {menuItems.map(({href, title, i}) => (
                 <li key={i}>
-                    <Link href={href} className={`w-[156px] flex gap-[10px] text-white hover:text-hover hover:text-whiteText hover:after:content-[url("../public/dot.svg")] ${router.pathname == href ? "text-whiteText" : "text-grayText"} ${router.pathname == href ? "after:content-[url('../public/dot.svg')]" : ""}`}>
-                        {title} 
+                    <Link href={href} className={`w-[156px] h-[1.5rem] flex gap-[10px] text-body text-white hover:text-hover hover:text-whiteText hover:after:content-[url("../assets/dot.svg")] ${router.pathname == href ? "text-whiteText" : "text-grayText"} ${router.pathname == href ? "after:content-[url('../assets/dot.svg')]" : ""}`}>
+                        <p>{title}</p> 
                     </Link>
                 </li>
             ))}

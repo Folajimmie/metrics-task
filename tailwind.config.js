@@ -20,7 +20,7 @@ module.exports = {
         }
       },
       backgroundImage: {
-        'dot': "url('../public/dot.svg')"
+        'dot': "url('../assets/dot.svg')"
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif']
@@ -48,9 +48,9 @@ module.exports = {
           }
         ],
         hover: [
-          '18px',
+          '14px',
           {
-            lineHeight: '25px',
+            lineHeight: '19px',
             letterSpacing: '0.005em'
           }
         ],
