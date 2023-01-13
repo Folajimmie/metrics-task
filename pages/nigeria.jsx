@@ -3,7 +3,7 @@ import { data } from "../components/data";
 
 export default function Nigeria() {
     return(
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-2 lg:grid-cols-6 pb-7">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-2 lg:grid-cols-6 pb-7">
             {data.map((pic, i) => {
                 return <Card 
                             key={i} 

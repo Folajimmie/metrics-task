@@ -27,13 +27,13 @@ const SignIn = () => {
       });
     return ( 
         <div className="bg-background h-screen p-5">
-            <div className=''>
+            <div className='flex justify-center items-center'>
                 <Image src={Logo}  alt='Onlypass Logo'/>
             </div>
             <div className='flex justify-center items-center h-3/4'>
                 <form>
                     <h2 className='text-heading text-whiteText text-center pb-3'>Admin Sign in</h2>
-                    <div className='flex flex-col gap-2 mb-2'>
+                    <div className='flex flex-col gap-[0.5rem] mb-2'>
                         <Input
                             inputProps={{
                                 type: 'email',
@@ -55,7 +55,7 @@ const SignIn = () => {
                        />
                     </div>
                         <Link href="/global">
-                            <DefaultButton className="!mt-[6px]" disabled={Object.keys(errors).length > 0}>
+                            <DefaultButton className="!mt-[0.5rem]" disabled={Object.keys(errors).length > 0}>
                                 Sign in
                             </DefaultButton>
                         </Link>
