@@ -5,7 +5,7 @@ export default function Global() {
     return(
         <div className="w-full">
             
-            <div className={`grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-1 lg:grid-cols-6 pb-7`}>
+            <div className={`grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-1 lg:grid-cols-6 lg:gap-[0.7rem] pb-7`}>
                 {data.map((pic, i) => {
                     return <Card 
                                 key={i} 

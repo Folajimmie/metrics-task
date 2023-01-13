@@ -26,14 +26,14 @@ const SignIn = () => {
         resolver: yupResolver(schema)
       });
     return ( 
-        <div className="bg-background h-screen p-5">
+        <div className="h-screen p-[1.25rem]">
             <div className='flex justify-center items-center'>
                 <Image src={Logo}  alt='Onlypass Logo'/>
             </div>
             <div className='flex justify-center items-center h-3/4'>
                 <form>
-                    <h2 className='text-heading text-whiteText text-center pb-3'>Admin Sign in</h2>
-                    <div className='flex flex-col gap-[0.5rem] mb-2'>
+                    <h2 className='text-heading text-whiteText text-center pb-[2.8rem]'>Admin Sign in</h2>
+                    <div className='flex flex-col gap-[1.43rem] mb-2'>
                         <Input
                             inputProps={{
                                 type: 'email',
@@ -55,13 +55,13 @@ const SignIn = () => {
                        />
                     </div>
                         <Link href="/global">
-                            <DefaultButton className="!mt-[0.5rem]" disabled={Object.keys(errors).length > 0}>
+                            <DefaultButton className="!mt-[1.49rem]" disabled={Object.keys(errors).length > 0}>
                                 Sign in
                             </DefaultButton>
                         </Link>
 
                         <Link href="/passwordReset">
-                            <p className="text-caption text-whiteText cursor-pointer mt-4">Forgot password?</p>
+                            <p className="text-caption text-whiteText cursor-pointer mt-[2.1rem]">Forgot password?</p>
                         </Link>
                 </form>
                 

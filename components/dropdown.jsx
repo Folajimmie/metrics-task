@@ -50,7 +50,7 @@ const Dropdown = ({placeHolder}) => {
         <div className='bg-background flex flex-col gap-4 p-2 w-full md:w-[656px] absolute translate-y-[4px] rounded-md border border-primary-80'>
           {menuItems.map(({href, title, i}) => (
             <li key={i} className="flex justify-center w-full">
-              <Link href={href} className={`h-[40px] text-white hover:text-hover hover:border-b hover:border-yellowText hover:text-white ${router.pathname == href ? "text-whiteText" : "text-grayText"}`}>
+              <Link href={href} className={`h-[40px] text-body text-white hover:text-hover hover:text-white ${router.pathname == href ? "text-whiteText" : "text-grayText"}`}>
                 <p className='text-center'>{title}</p>  
               </Link>
             </li>
