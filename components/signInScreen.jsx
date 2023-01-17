@@ -32,7 +32,7 @@ const SignIn = () => {
             </div>
             <div className='flex justify-center items-center h-3/4'>
                 <form>
-                    <h2 className='text-heading text-whiteText text-center pb-[2.8rem]'>Admin Sign in</h2>
+                    <h2 className='text-heading text-whiteText text-center mt-[7.4rem] mb-[2.8rem]'>Admin Sign in</h2>
                     <div className='flex flex-col gap-[1.43rem] mb-2'>
                         <Input
                             inputProps={{
