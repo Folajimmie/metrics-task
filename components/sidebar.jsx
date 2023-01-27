@@ -16,7 +16,7 @@ const Sidebar = () => {
         </div>
 
         {/* for other screens */}
-        <nav>
+        <nav className='border h-[100px]'>
             <ul className='hidden lg:mt-[35px] lg:flex lg:flex-col lg:gap-4'>
             {menuItems.map(({href, title, i}) => (
                 <li key={i}>
@@ -26,7 +26,11 @@ const Sidebar = () => {
                 </li>
             ))}
             </ul>
+
+            
         </nav>
+
+        
         </>
      );
 }

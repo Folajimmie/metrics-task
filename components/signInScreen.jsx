@@ -7,6 +7,12 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { DefaultButton } from './button';
+import { getApiResponseErrorMessage } from '../utils/objects';
+import { useMutation } from '@tanstack/react-query';
+import { setAuthToken, setUser } from '../config/axios';
+import { signin } from '../services/api/queries/authentication';
+
+
 
 
 const SignIn = () => {
@@ -25,13 +31,40 @@ const SignIn = () => {
       } = useForm({
         resolver: yupResolver(schema)
       });
+
+      const {
+        data,
+        mutate: mutateSignin,
+        isLoading
+      } = useMutation(signin, {
+        mutationKey: 'signin',
+        onSuccess: (data) => onSigninSuccess(data),
+        onError: (error) => onSigninError(error)
+      });
+
+      const onSigninSuccess = (data) => {
+        const { email } = getValues();
+        const { token } = data;
+        setAuthToken(token);
+        setUser(email);
+        router.push('/global');
+      };
+
+    //   const onSigninError = (error) => {
+    //     const errorMessage = getApiResponseErrorMessage(error);
+    //   };
+
+      const onSubmit = (data) => {
+        mutateSignin(data);
+      };
+
     return ( 
         <div className="h-screen p-[1.25rem]">
             <div className='flex justify-center items-center'>
                 <Image src={Logo}  alt='Onlypass Logo'/>
             </div>
             <div className='flex justify-center items-center h-3/4'>
-                <form>
+                <form name="userInfo" noValidate={true} onSubmit={handleSubmit(onSubmit)}>
                     <h2 className='text-heading text-whiteText text-center mt-[7.4rem] mb-[2.8rem]'>Admin Sign in</h2>
                     <div className='flex flex-col gap-[1.43rem] mb-2'>
                         <Input
@@ -41,7 +74,7 @@ const SignIn = () => {
                                 name: 'email',
                                 ...register('email')
                             }}
-                            // error={error.email.message}
+                            error={errors.email?.message}
                         />
                        
                        <Input
@@ -51,14 +84,12 @@ const SignIn = () => {
                             name: 'password',
                             ...register('password')
                           }}
-                        //   error={errors.password?.message}
+                          error={errors.password?.message}
                        />
                     </div>
-                        <Link href="/global">
-                            <DefaultButton className="!mt-[1.49rem]" disabled={Object.keys(errors).length > 0}>
-                                Sign in
-                            </DefaultButton>
-                        </Link>
+                        <DefaultButton className="!mt-[1.49rem]" disabled={Object.keys(errors).length > 0}>
+                            Sign in
+                        </DefaultButton>
 
                         <Link href="/passwordReset">
                             <p className="text-caption text-whiteText cursor-pointer mt-[2.1rem]">Forgot password?</p>
