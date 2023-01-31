@@ -1,8 +1,4 @@
-import Card from "../components/card";
-import { useEffect } from "react";
-import Money from '../assets/money.svg';
-import People from '../assets/people.svg';
-import Folder from '../assets/card.svg';
+import Card from "../components/card";;
 import { useHomefetch } from "../Hooks/useHomefetch";
 
 export default function Global() {
@@ -29,7 +25,7 @@ export default function Global() {
                                     : id === 1 
                                     ? 'col-span-3 md:col-span-3 lg:col-span-1'
                                     ?  id === 2 
-                                    : 'col-span-3 md:col-span-2 lg:col-span-1'
+                                    : 'col-span-3 md:col-span-3 lg:col-span-1'
                                     : 'col-span-3 md:col-span-2 lg:col-span-2'}`}
                              image={item.image} 
                              title={item.title} 
