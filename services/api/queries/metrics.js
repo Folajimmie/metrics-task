@@ -1,8 +1,29 @@
 import URI_MAP from '../uris';
 import { axios, getAuthToken } from '../../../config/axios';
 
-export const totalCountries = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalCountries}/${id}`, {
+const getCountries = async (token) => {
+    try {
+      await axios
+        .get(
+            `${URI_MAP.metrics.totalCountries}`,
+          {
+            headers: {
+                Authorization: getAuthToken(),
+            },
+          }
+        )
+        .then((res) => {
+          if (res.status) {
+            setCountries(res.data);
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+export const totalMerchants = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalMerchants}`, {
         headers: {
             Authorization: getAuthToken()
         }
@@ -11,8 +32,8 @@ export const totalCountries = async (id) => {
     return res;
 };
 
-export const totalMerchants = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalMerchants}/${id}`, {
+export const paymentMethods = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalPaymentMethods}`, {
         headers: {
             Authorization: getAuthToken()
         }
@@ -20,8 +41,10 @@ export const totalMerchants = async (id) => {
 
     return res;
 };
-export const paymentMethods = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalPaymentMethods}/${id}`, {
+
+
+export const paymentGateways = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalPaymentGateways}`, {
         headers: {
             Authorization: getAuthToken()
         }
@@ -29,8 +52,10 @@ export const paymentMethods = async (id) => {
 
     return res;
 };
-export const paymentGateways = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalPaymentGateways}/${id}`, {
+
+
+export const transactionsCount = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalTransactionsCount}`, {
         headers: {
             Authorization: getAuthToken()
         }
@@ -38,8 +63,10 @@ export const paymentGateways = async (id) => {
 
     return res;
 };
-export const transactionsCount = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalTransactionsCount}/${id}`, {
+
+
+export const transactionsAmount = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalTransactionsAmount}`, {
         headers: {
             Authorization: getAuthToken()
         }
@@ -47,8 +74,9 @@ export const transactionsCount = async (id) => {
 
     return res;
 };
-export const transactionsAmount = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalTransactionsAmount}/${id}`, {
+
+export const dailyTransactions = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalDailyTransactions}`, {
         headers: {
             Authorization: getAuthToken()
         }
@@ -56,8 +84,20 @@ export const transactionsAmount = async (id) => {
 
     return res;
 };
-export const dailyTransactions = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalDailyTransactionss}/${id}`, {
+
+// export const weeklyTransactions = async () => {
+//     const res = await axios.get(`${URI_MAP.metrics.totalWeeklyTransactions}`, {
+//         headers: {
+//             Authorization: getAuthToken()
+//         }
+//     });
+
+//     return res;
+// };
+
+
+export const monthlyTransactions = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalMonthlyTransactions}`, {
         headers: {
             Authorization: getAuthToken()
         }
@@ -65,8 +105,9 @@ export const dailyTransactions = async (id) => {
 
     return res;
 };
-export const weeklyTransactions = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalWeeklyTransactions}/${id}`, {
+
+export const monthlyTransactionAmount = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalMonthlyTransactionAmount}`, {
         headers: {
             Authorization: getAuthToken()
         }
@@ -74,8 +115,10 @@ export const weeklyTransactions = async (id) => {
 
     return res;
 };
-export const monthlyTransactions = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalMonthlyTransactions}/${id}`, {
+
+
+export const weeklyTransactionAmount = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalWeeklyTransactionAmount}}`, {
         headers: {
             Authorization: getAuthToken()
         }
@@ -83,26 +126,10 @@ export const monthlyTransactions = async (id) => {
 
     return res;
 };
-export const monthlyTransactionAmount = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalMonthlyTransactionAmount}/${id}`, {
-        headers: {
-            Authorization: getAuthToken()
-        }
-    });
 
-    return res;
-};
-export const weeklyTransactionAmount = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalWeeklyTransactionAmount}/${id}`, {
-        headers: {
-            Authorization: getAuthToken()
-        }
-    });
 
-    return res;
-};
-export const dailyTransactionAmount = async (id) => {
-    const res = await axios.get(`${URI_MAP.metrics.totalDailyTransactionAmount}/${id}`, {
+export const dailyTransactionAmount = async () => {
+    const res = await axios.get(`${URI_MAP.metrics.totalDailyTransactionAmount}`, {
         headers: {
             Authorization: getAuthToken()
         }

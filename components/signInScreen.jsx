@@ -11,6 +11,8 @@ import { getApiResponseErrorMessage } from '../utils/objects';
 import { useMutation } from '@tanstack/react-query';
 import { setAuthToken, setUser } from '../config/axios';
 import { signin } from '../services/api/queries/authentication';
+import { toast } from 'react-toastify';
+
 
 
 
@@ -44,15 +46,17 @@ const SignIn = () => {
 
       const onSigninSuccess = (data) => {
         const { email } = getValues();
-        const { token } = data;
-        setAuthToken(token);
+        const { accessToken } = data.data;
+        setAuthToken(accessToken);
         setUser(email);
         router.push('/global');
       };
-
-    //   const onSigninError = (error) => {
-    //     const errorMessage = getApiResponseErrorMessage(error);
-    //   };
+ 
+      
+      const onSigninError = (error) => {
+        const errorMessage = getApiResponseErrorMessage(error);
+        toast.error(errorMessage);
+      };
 
       const onSubmit = (data) => {
         mutateSignin(data);

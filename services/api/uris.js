@@ -6,7 +6,7 @@ const URI_MAP = {
     },
     metrics: {
         totalCountries: `${BASE_URL}/api/v1/metrics/total-countries`,
-        totalMerchants: `${BASE_URL}api/v1/metrics/total-merchants`,
+        totalMerchants: `${BASE_URL}/api/v1/metrics/total-merchants`,
         totalPaymentMethods: `${BASE_URL}/api/v1/metrics/total-payment-methods`,
         totalPaymentGateways: `${BASE_URL}/api/v1/metrics/total-payment-gateways`,
         totalTransactionsCount: `${BASE_URL}/api/v1/metrics/total-transactions-count`,

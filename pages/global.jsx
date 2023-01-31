@@ -1,76 +1,47 @@
 import Card from "../components/card";
 import { useEffect } from "react";
-// import { useParams } from 'react-router-dom';
 import Money from '../assets/money.svg';
 import People from '../assets/people.svg';
 import Folder from '../assets/card.svg';
-// import { data } from "../components/data";
-import { useHomeFetch } from "../Hooks/useHomefetch";
-import { axios, getAuthToken } from "../config/axios";
+import { useHomefetch } from "../Hooks/useHomefetch";
 
 export default function Global() {
-    // const {id} = useParams();
-
-    // const token = getAuthToken()
-    
-    const { state: 
-            loading, 
+    const { 
             error, 
-            countries,
-            merchants,
-            methods,
-            gateways,
-            count,
-            tAmount,
-            dailyT,
-            weeklyT,
-            monthlyT,
-            weeklyTA,
-            dailylyTA,
-            monthlyTA
-        } = useHomeFetch(1);
-        
-        const getCountries = async () => {
-            await axios
-              .get("https://metrics-dev.api.onlypassafrica.com/api/v1/metrics/total-countries", {
-              headers: {
-                        Authorization: token
-                    
-                    }})
-                
-              .then((res) => {
-                return console.log(res);
-              });
-            
-          };
+            loading,
+            data } = useHomefetch();
 
-    
-        useEffect (() => {
-            // console.log('hello');
-             const win = localStorage.getItem('token')
-             console.log(win)
-            //  if(
-            //     token
-            //  ){
-            //     getCountries();
-            //  }
-            // console.log(countries);
-        }, [])
+  console.log({ data });
 
-
-
-    if (loading) return <div>loading...</div>
+    if (loading) return <div className="text-white">loading...</div>
     if (error) return <div>An error occured</div>
-
     
-
+    
     return(
-        <div className="w-full">
-            
-            <div className={`grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-1 lg:grid-cols-6 lg:gap-[0.7rem] pb-7`}> 
-                <Card image={Money} name={countries.name}/>
-                
+        <div className="">
+            <div className={`grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-1 lg:grid-cols-6 lg:gap-[0.7rem] pb-7`}>
+            {data.map((item, id) => {
+                 return <Card 
+                             key={id} 
+                             className={`${
+                                id === 0 
+                                    ? 'col-span-3 md:col-span-3 lg:col-span-3' 
+                                    : id === 1 
+                                    ? 'col-span-3 md:col-span-3 lg:col-span-1'
+                                    ?  id === 2 
+                                    : 'col-span-3 md:col-span-2 lg:col-span-1'
+                                    : 'col-span-3 md:col-span-2 lg:col-span-2'}`}
+                             image={item.image} 
+                             title={item.title} 
+                             figure={Math.round(
+                                (item.figure + Number.EPSILON) * 100
+                             )/100
+                            }
+                         />
+             })}
             </div>
         </div>
     );                
 };
+
+
