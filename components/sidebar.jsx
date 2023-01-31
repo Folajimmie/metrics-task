@@ -16,7 +16,7 @@ const Sidebar = () => {
         </div>
 
         {/* for other screens */}
-        <nav className='h-[30rem]'>
+        <nav className='h-hidden md:h-[20rem] lg:h-[30rem]'>
             <ul className='hidden lg:mt-[35px] lg:flex lg:flex-col lg:gap-4'>
             {menuItems.map(({href, title, i}) => (
                 <li key={i}>
