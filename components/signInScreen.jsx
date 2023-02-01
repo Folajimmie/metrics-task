@@ -12,10 +12,7 @@ import { useMutation } from '@tanstack/react-query';
 import { setAuthToken, setUser } from '../config/axios';
 import { signin } from '../services/api/queries/authentication';
 import { toast } from 'react-toastify';
-
-
-
-
+import 'react-toastify/dist/ReactToastify.css'
 
 const SignIn = () => {
     const router = useRouter();

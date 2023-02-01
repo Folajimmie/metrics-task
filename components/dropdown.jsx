@@ -35,8 +35,8 @@ const Dropdown = ({placeHolder}) => {
     };
 
   return (
-    <div className='text-white text-left relative md:w-1/2 lg:hidden'>
-        <div onClick={handleInputClick} className='p-[5px] flex items-center justify-between w-3/4 border border-primary-40 rounded-md md:border-none'>    
+    <div className='text-white text-left relative md:w-full lg:hidden'>
+        <div onClick={handleInputClick} className='p-[5px] flex items-center justify-between w-3/4 border border-primary-40 rounded-md md:border'>    
           <div>
             <p className='text-sm font-semibold'>
               {getDisplay ()}

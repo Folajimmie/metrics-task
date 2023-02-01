@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Cal from '../assets/calendar.svg';
 import Image from 'next/image'
+// import MyLoader from "./loader";
 
 
 const Calendar = () => {
@@ -12,7 +13,7 @@ const Calendar = () => {
             setCalendar(date.toDateString());
         }, 1000)
     }, []);
-
+    
     return ( 
         <div className="text-white justify-center flex md:text-whiteText md:text-body2 md:flex md:gap-1 md:mt-1 lg:text-whiteText lg:text-hover lg:flex lg:gap-1 lg:mt-1">
             <p className="md:mt-1">{calendar}</p>

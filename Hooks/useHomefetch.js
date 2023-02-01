@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import axios from "axios";
 import Money from '../assets/money.svg';
 import Folder from '../assets/card.svg';
 import People from '../assets/people.svg';
@@ -67,16 +66,19 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setMerchants(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
 
   const getPaymentMethods = async (token) => {
+    setLoading(true)
     try {
       await axios
         .get(
@@ -88,16 +90,19 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setPaymentMethods(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
 
   const getPaymentGateways = async (token) => {
+    setLoading(true)
     try {
       await axios
         .get(
@@ -109,16 +114,19 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setPaymentGateways(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
 
   const getTransactionsCount = async (token) => {
+    setLoading(true)
     try {
       await axios
         .get(
@@ -130,16 +138,19 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setTransactionsCount(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
 
   const getTransactionsAmount = async (token) => {
+    setLoading(true)
     try {
       await axios
         .get(
@@ -151,15 +162,18 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setTransactionsAmount(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
   const getDailyTransactions = async (token) => {
+    setLoading(true)
     try {
       await axios
         .get(
@@ -171,16 +185,19 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setDailyTransactions(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
 
   const getWeeklyTransactions = async (token) => {
+    setLoading(true)
     try {
       await axios
         .get(
@@ -192,16 +209,19 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setWeeklyTransactions(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
 
   const getMonthlyTransactions = async (token) => {
+    setLoading(true)
     try {
       await axios
         .get(
@@ -213,16 +233,19 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setMonthlyTransactions(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
 
   const getMonthlyTransactionAmount = async (token) => {
+    setLoading(true)
     try {
       await axios
         .get(
@@ -234,16 +257,19 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setMonthlyTransactionAmount(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
 
   const getWeeklyTransactionAmount = async (token) => {
+    setLoading(true)
     try {
       await axios
         .get(
@@ -255,16 +281,19 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setWeeklyTransactionAmount(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
 
   const getDailyTransactionAmount = async (token) => {
+    setLoading(true)
     setError('')
     try {
       await axios
@@ -277,11 +306,13 @@ export const useHomefetch = () => {
           }
         )
         .then((res) => {
+          setLoading(false)
           if (res.status) {
             setDailyTransactionAmount(res.data);
           }
         });
     } catch (error) {
+      setLoading(false)
         setError(error?.response?.error.message)
       console.log(error);
     }
@@ -303,12 +334,26 @@ export const useHomefetch = () => {
     
   }, []);
 
+  const toCurrency = (number) => {
+    return Intl.NumberFormat('en-us', {
+      style: 'currency', 
+      currency: 'NGN', 
+      minimumFractionDigits: 2
+    }).format(number);
+  }
+
+  const toNumber = (number) => {
+    return Math.round(
+          (number + Number.EPSILON) * 100
+       )/100
+  }
+
  const data = [
     {
         "id": 1,
         "image": Money,
         "title": 'Total Transaction',
-        "figure": transactionsAmount?.data,
+        "figure": toCurrency(transactionsAmount?.data),
     },
     {
             "id": 2,
@@ -344,37 +389,37 @@ export const useHomefetch = () => {
             "id": 7,
         image: Folder,
         title: 'Average Daily Transaction',
-        figure: dailyTransactions?.data,
+        figure: toNumber(dailyTransactions?.data),
     },
     {
             "id": 8,
         image: Folder,
         title: 'Average Weekly Transaction',
-        figure: weeklyTransactions?.data,
+        figure: toNumber(weeklyTransactions?.data),
     },
     {
             "id": 9,
         image: Folder,
         title: 'Average Monthly Transaction',
-        figure: monthlyTransactions?.data,
+        figure: toNumber(monthlyTransactions?.data),
     },
     {
         "id": 10,
         image: Money,
         title: 'Average Daily Transaction',
-        figure: dailyTransactionAmount?.data,
+        figure: toCurrency(dailyTransactionAmount?.data),
     },
     {
             "id": 11,
         image: Money,
         title: "Average Weekly Transaction",
-        figure: weeklyTransactionAmount?.data,
+        figure: toCurrency(weeklyTransactionAmount?.data),
     },
     {
             "id": 12,
         image: Money,
         title: 'Average Monthly Transaction',
-        figure: monthlyTransactionAmount?.data,
+        figure: toCurrency(monthlyTransactionAmount?.data),
     },
 ];
   return { error, loading, data };

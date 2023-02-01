@@ -17,9 +17,16 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <QueryClientProvider client={queryClient}>
+      {router.pathname !== "/" ? (
+        <DashboardLayout>
+          <Component {...pageProps} />
+        </DashboardLayout>
+      ) : (
+        <Component {...pageProps} />
+      )}
       <ToastContainer
         position="top-right"
-        autoClose={1000}
+        autoClose={2000}
         hideProgressBar
         newestOnTop={false}
         closeOnClick
@@ -29,13 +36,6 @@ function MyApp({ Component, pageProps }) {
         pauseOnHover
         theme="colored"
       />
-      {router.pathname !== "/" ? (
-        <DashboardLayout>
-          <Component {...pageProps} />
-        </DashboardLayout>
-      ) : (
-        <Component {...pageProps} />
-      )}
     </QueryClientProvider>
   )
 }
