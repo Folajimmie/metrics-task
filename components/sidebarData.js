@@ -1,12 +1,12 @@
 export const menuItems = [
     {
-        href:'/global',
-        title: 'Global'
-    },
-    {
         href:'/nigeria',
         title: 'Nigeria'
     },
+    // {
+    //     href:'/nigeria',
+    //     title: 'Nigeria'
+    // },
     // {
     //     href:'/egypt',
     //     title: 'Egypt'

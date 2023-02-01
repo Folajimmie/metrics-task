@@ -46,7 +46,7 @@ const SignIn = () => {
         const { accessToken } = data.data;
         setAuthToken(accessToken);
         setUser(email);
-        router.push('/global');
+        router.push('/nigeria');
       };
  
       
